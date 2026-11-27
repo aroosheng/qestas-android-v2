@@ -1,6 +1,14 @@
+
 {
   "appId": "ir.qestas.app",
   "appName": "Qestas",
   "webDir": "dist",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+    "StatusBar": {
+      "overlaysWebView": false,
+      "style": "LIGHT",
+      "backgroundColor": "#ffffff"
+    }
+  }
 }
