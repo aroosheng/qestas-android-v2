@@ -1,0 +1,476 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   QESTAS THEME SYSTEM
+   Default theme: Navy & Gold
+========================================= */
+
+:root {
+  font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+
+  /* Accent colors - Navy & Gold */
+  --q-accent-50: 255 251 235;
+  --q-accent-100: 254 243 199;
+  --q-accent-200: 253 230 138;
+  --q-accent-300: 252 211 77;
+  --q-accent-400: 251 191 36;
+  --q-accent-500: 245 158 11;
+  --q-accent-600: 217 119 6;
+  --q-accent-700: 180 83 9;
+  --q-accent-800: 146 64 14;
+  --q-accent-900: 120 53 15;
+
+  /* Primary follows selected accent palette */
+  --q-primary-50: var(--q-accent-50);
+  --q-primary-100: var(--q-accent-100);
+  --q-primary-200: var(--q-accent-200);
+  --q-primary-300: var(--q-accent-300);
+  --q-primary-400: var(--q-accent-400);
+  --q-primary-500: var(--q-accent-500);
+  --q-primary-600: var(--q-accent-600);
+  --q-primary-700: var(--q-accent-700);
+  --q-primary-800: var(--q-accent-800);
+  --q-primary-900: var(--q-accent-900);
+  --q-primary-950: var(--q-accent-900);
+
+  /* Default dark surfaces */
+  color-scheme: dark;
+
+  --q-surface-50: 248 250 252;
+  --q-surface-100: 241 245 249;
+  --q-surface-200: 226 232 240;
+  --q-surface-300: 203 213 225;
+  --q-surface-400: 148 163 184;
+  --q-surface-500: 100 116 139;
+  --q-surface-600: 71 85 105;
+  --q-surface-700: 51 65 85;
+  --q-surface-800: 30 41 59;
+  --q-surface-900: 15 23 42;
+  --q-surface-950: 2 6 23;
+}
+
+/* =========================================
+   1. NAVY & GOLD
+========================================= */
+
+:root[data-palette="navy"] {
+  --q-accent-500: 245 158 11;
+}
+
+/* =========================================
+   2. OCEAN BLUE
+========================================= */
+
+:root[data-palette="ocean"] {
+  --q-accent-50: 240 249 255;
+  --q-accent-100: 224 242 254;
+  --q-accent-200: 186 230 253;
+  --q-accent-300: 125 211 252;
+  --q-accent-400: 56 189 248;
+  --q-accent-500: 14 165 233;
+  --q-accent-600: 2 132 199;
+  --q-accent-700: 3 105 161;
+  --q-accent-800: 7 89 133;
+  --q-accent-900: 12 74 110;
+}
+
+/* =========================================
+   3. EMERALD GREEN
+========================================= */
+
+:root[data-palette="emerald"] {
+  --q-accent-50: 236 253 245;
+  --q-accent-100: 209 250 229;
+  --q-accent-200: 167 243 208;
+  --q-accent-300: 110 231 183;
+  --q-accent-400: 52 211 153;
+  --q-accent-500: 16 185 129;
+  --q-accent-600: 5 150 105;
+  --q-accent-700: 4 120 87;
+  --q-accent-800: 6 95 70;
+  --q-accent-900: 6 78 59;
+}
+
+/* =========================================
+   4. ROYAL PURPLE
+========================================= */
+
+:root[data-palette="purple"] {
+  --q-accent-50: 250 245 255;
+  --q-accent-100: 243 232 255;
+  --q-accent-200: 233 213 255;
+  --q-accent-300: 216 180 254;
+  --q-accent-400: 192 132 252;
+  --q-accent-500: 168 85 247;
+  --q-accent-600: 147 51 234;
+  --q-accent-700: 126 34 206;
+  --q-accent-800: 107 33 168;
+  --q-accent-900: 88 28 135;
+}
+
+/* =========================================
+   5. CLASSIC LIGHT GOLD
+========================================= */
+
+:root[data-palette="light"] {
+  --q-accent-50: 255 251 235;
+  --q-accent-100: 254 243 199;
+  --q-accent-200: 253 230 138;
+  --q-accent-300: 252 211 77;
+  --q-accent-400: 234 179 8;
+  --q-accent-500: 202 138 4;
+  --q-accent-600: 161 98 7;
+  --q-accent-700: 133 77 14;
+  --q-accent-800: 113 63 18;
+  --q-accent-900: 92 51 16;
+}
+
+/* =========================================
+   6. MODERN GRAPHITE
+========================================= */
+
+:root[data-palette="dark"] {
+  --q-accent-50: 250 250 250;
+  --q-accent-100: 245 245 245;
+  --q-accent-200: 229 229 229;
+  --q-accent-300: 212 212 212;
+  --q-accent-400: 163 163 163;
+  --q-accent-500: 115 115 115;
+  --q-accent-600: 82 82 82;
+  --q-accent-700: 64 64 64;
+  --q-accent-800: 38 38 38;
+  --q-accent-900: 23 23 23;
+}
+
+/* =========================================
+   7. RUBY RED
+   Full theme is defined at the bottom.
+========================================= */
+
+/* =========================================
+   8. MAGENTA
+========================================= */
+
+:root[data-palette="magenta"] {
+  --q-accent-50: 253 242 248;
+  --q-accent-100: 252 231 243;
+  --q-accent-200: 251 207 232;
+  --q-accent-300: 249 168 212;
+  --q-accent-400: 244 114 182;
+  --q-accent-500: 236 72 153;
+  --q-accent-600: 219 39 119;
+  --q-accent-700: 190 24 93;
+  --q-accent-800: 157 23 77;
+  --q-accent-900: 131 24 67;
+}
+
+/* =========================================
+   DISPLAY MODES
+========================================= */
+
+/* Light mode */
+
+:root[data-mode="light"] {
+  color-scheme: light;
+
+  --q-surface-50: 15 23 42;
+  --q-surface-100: 30 41 59;
+  --q-surface-200: 51 65 85;
+  --q-surface-300: 71 85 105;
+  --q-surface-400: 100 116 139;
+  --q-surface-500: 148 163 184;
+  --q-surface-600: 203 213 225;
+  --q-surface-700: 226 232 240;
+  --q-surface-800: 241 245 249;
+  --q-surface-900: 248 250 252;
+  --q-surface-950: 255 255 255;
+}
+
+/* Automatic mode */
+
+@media (prefers-color-scheme: light) {
+  :root[data-mode="system"] {
+    color-scheme: light;
+
+    --q-surface-50: 15 23 42;
+    --q-surface-100: 30 41 59;
+    --q-surface-200: 51 65 85;
+    --q-surface-300: 71 85 105;
+    --q-surface-400: 100 116 139;
+    --q-surface-500: 148 163 184;
+    --q-surface-600: 203 213 225;
+    --q-surface-700: 226 232 240;
+    --q-surface-800: 241 245 249;
+    --q-surface-900: 248 250 252;
+    --q-surface-950: 255 255 255;
+  }
+}
+
+/* =========================================
+   RUBY RED - COMPLETE VISUAL IDENTITY
+
+   Red background
+   White cards and menus
+   Soft pink secondary surfaces
+   Dark red readable text
+========================================= */
+
+:root[data-palette="ruby"] {
+  color-scheme: light;
+
+  /* Ruby accent */
+  --q-accent-50: 254 242 242;
+  --q-accent-100: 254 226 226;
+  --q-accent-200: 254 202 202;
+  --q-accent-300: 252 165 165;
+  --q-accent-400: 248 113 113;
+  --q-accent-500: 239 68 68;
+  --q-accent-600: 220 38 38;
+  --q-accent-700: 185 28 28;
+  --q-accent-800: 153 27 27;
+  --q-accent-900: 127 29 29;
+
+  /* Red background */
+  --q-surface-950: 127 29 29;
+
+  /* White and pale pink cards */
+  --q-surface-900: 255 255 255;
+  --q-surface-800: 255 245 245;
+  --q-surface-700: 254 226 226;
+
+  /* Readable text on white surfaces */
+  --q-surface-600: 153 27 27;
+  --q-surface-500: 127 29 29;
+  --q-surface-400: 100 20 20;
+  --q-surface-300: 69 10 10;
+  --q-surface-200: 69 10 10;
+  --q-surface-100: 45 10 10;
+
+  /* White text on red background */
+  --q-surface-50: 255 255 255;
+}
+
+/* =========================================
+   RUBY RED - GLOBAL BACKGROUND
+========================================= */
+
+:root[data-palette="ruby"] body {
+  background-color: #7f1d1d !important;
+  color: #ffffff;
+}
+
+:root[data-palette="ruby"] .min-h-screen.bg-surface-950 {
+  background-color: #7f1d1d !important;
+}
+
+/* =========================================
+   RUBY RED - HEADER
+========================================= */
+
+:root[data-palette="ruby"] header.bg-surface-900 {
+  background-color: #7f1d1d !important;
+  border-color: #991b1b !important;
+}
+
+:root[data-palette="ruby"] header.bg-surface-900 .text-surface-400 {
+  color: #fee2e2 !important;
+}
+
+:root[data-palette="ruby"] header.bg-surface-900 .text-surface-500 {
+  color: #fecaca !important;
+}
+
+:root[data-palette="ruby"] header.bg-surface-900 [class~="bg-accent-600/20"] {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+
+/* =========================================
+   RUBY RED - WHITE CARDS
+========================================= */
+
+:root[data-palette="ruby"] .bg-surface-900:not(header) {
+  background-color: #ffffff !important;
+  border-color: #fecaca !important;
+}
+
+:root[data-palette="ruby"] .bg-surface-800 {
+  background-color: #fff5f5;
+  border-color: #fecaca;
+}
+
+/* Readable text inside white cards */
+
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-white,
+:root[data-palette="ruby"] .bg-surface-800 .text-white {
+  color: #450a0a !important;
+}
+
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-50,
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-100,
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-200,
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-300,
+:root[data-palette="ruby"] .bg-surface-800 .text-surface-200,
+:root[data-palette="ruby"] .bg-surface-800 .text-surface-300 {
+  color: #450a0a !important;
+}
+
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-400,
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-500,
+:root[data-palette="ruby"] .bg-surface-900:not(header) .text-surface-600,
+:root[data-palette="ruby"] .bg-surface-800 .text-surface-400,
+:root[data-palette="ruby"] .bg-surface-800 .text-surface-500 {
+  color: #991b1b !important;
+}
+
+/* =========================================
+   RUBY RED - BUTTONS
+========================================= */
+
+/* Main buttons become white with red text */
+
+:root[data-palette="ruby"] button.bg-primary-600,
+:root[data-palette="ruby"] a.bg-primary-600 {
+  background-color: #ffffff !important;
+  color: #7f1d1d !important;
+  border: 1px solid #fecaca !important;
+}
+
+/* Keep icons and labels consistent */
+
+:root[data-palette="ruby"] button.bg-primary-600 .text-white,
+:root[data-palette="ruby"] button.bg-primary-600 svg {
+  color: inherit !important;
+}
+
+/* Active dashboard tab remains ruby red */
+
+:root[data-palette="ruby"] .flex.gap-1.bg-surface-900 > button.bg-primary-600 {
+  background-color: #991b1b !important;
+  color: #ffffff !important;
+  border-color: #991b1b !important;
+}
+
+:root[data-palette="ruby"] .flex.gap-1.bg-surface-900 > button.bg-primary-600 .text-white,
+:root[data-palette="ruby"] .flex.gap-1.bg-surface-900 > button.bg-primary-600 svg {
+  color: #ffffff !important;
+}
+
+/* Secondary buttons */
+
+:root[data-palette="ruby"] button.bg-surface-800 {
+  background-color: #fff5f5 !important;
+  border-color: #fecaca !important;
+  color: #7f1d1d !important;
+}
+
+/* =========================================
+   RUBY RED - INPUTS
+========================================= */
+
+:root[data-palette="ruby"] input.bg-surface-800,
+:root[data-palette="ruby"] textarea.bg-surface-800,
+:root[data-palette="ruby"] select.bg-surface-800 {
+  background-color: #fffafa !important;
+  border-color: #fecaca !important;
+  color: #450a0a !important;
+}
+
+:root[data-palette="ruby"] input::placeholder,
+:root[data-palette="ruby"] textarea::placeholder {
+  color: #b91c1c !important;
+}
+
+/* =========================================
+   RUBY RED - BOTTOM NAVIGATION
+========================================= */
+
+:root[data-palette="ruby"] nav.fixed {
+  background-color: #ffffff !important;
+  border-top-color: #fecaca !important;
+}
+
+:root[data-palette="ruby"] nav.fixed button {
+  color: #991b1b;
+}
+
+:root[data-palette="ruby"] nav.fixed button.text-primary-400 {
+  color: #7f1d1d !important;
+}
+
+/* =========================================
+   RUBY RED - SCROLLBAR
+========================================= */
+
+:root[data-palette="ruby"] ::-webkit-scrollbar-track {
+  background: #7f1d1d;
+}
+
+:root[data-palette="ruby"] ::-webkit-scrollbar-thumb {
+  background: #fecaca;
+}
+
+:root[data-palette="ruby"] ::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+* {
+  font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  background-color: rgb(var(--q-surface-950));
+  color: rgb(var(--q-surface-50));
+}
+
+/* Custom scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--q-surface-900));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--q-surface-700));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--q-surface-600));
+}
+
+/* Smooth transitions */
+
+input,
+button,
+a {
+  transition: all 0.2s ease;
+}
+
+/* Remove number input arrows */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
