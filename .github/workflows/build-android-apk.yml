@@ -51,6 +51,7 @@ jobs:
           npx cap add android
           npx cap sync android
 
+    
       - name: Configure Android system bars
         run: |
           python3 - <<'PY'
@@ -58,36 +59,46 @@ jobs:
 
           files = list(Path("android/app/src/main").rglob("MainActivity.java"))
 
-          if not files:
-              raise SystemExit("MainActivity.java not found")
+          if len(files) != 1:
+              raise SystemExit(f"Expected 1 MainActivity.java, found {len(files)}")
 
-          for file in files:
-              source = file.read_text()
+          file = files[0]
+          source = file.read_text()
 
-              if "WindowCompat.setDecorFitsSystemWindows" in source:
-                  continue
+          if "WindowCompat.setDecorFitsSystemWindows" not in source:
+              import_line = "import com.getcapacitor.BridgeActivity;"
+              if import_line not in source:
+                  raise SystemExit("BridgeActivity import not found")
 
               source = source.replace(
-                  "import com.getcapacitor.BridgeActivity;",
-                  "import com.getcapacitor.BridgeActivity;\n"
-                  "import android.os.Bundle;\n"
-                  "import androidx.core.view.WindowCompat;"
+                  import_line,
+                  import_line + "\nimport android.os.Bundle;\nimport androidx.core.view.WindowCompat;",
+                  1
               )
 
+              class_line = "public class MainActivity extends BridgeActivity {"
+              if class_line not in source:
+                  raise SystemExit("MainActivity class declaration not found")
+
               source = source.replace(
-                  "public class MainActivity extends BridgeActivity {",
-                  """public class MainActivity extends BridgeActivity {
+                  class_line,
+                  class_line + """
               @Override
               protected void onCreate(Bundle savedInstanceState) {
-                  WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
                   super.onCreate(savedInstanceState);
-              }"""
+                  WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+              }
+              """,
+                  1
               )
 
-              file.write_text(source)
+          if "WindowCompat.setDecorFitsSystemWindows" not in source:
+              raise SystemExit("System bar configuration was not applied")
 
-          print("Android system bar configuration applied.")
+          file.write_text(source)
+          print(f"System bar configuration verified: {file}")
           PY
+
 
       - name: Build debug APK
         run: |
